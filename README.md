@@ -1,3 +1,3 @@
-# x2bee-common
+# enbiz-common
 
-x2bee-common
+enbiz-common
