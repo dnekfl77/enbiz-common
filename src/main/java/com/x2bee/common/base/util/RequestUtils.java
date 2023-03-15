@@ -48,6 +48,7 @@ public abstract class RequestUtils {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T> T getAttribute(String key) {
         return (T) RequestContextHolder.getRequestAttributes().getAttribute(key, RequestAttributes.SCOPE_REQUEST);
     }

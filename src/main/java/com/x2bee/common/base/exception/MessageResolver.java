@@ -7,8 +7,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
-import com.x2bee.common.base.context.ApplicationContextWrapper;
-
 @Component
 public class MessageResolver {
     private static MessageSource messageSource;
@@ -69,7 +67,6 @@ public class MessageResolver {
     }
 
     public static String getMessage(AppError appError, Object[] args, String defaultMessage, Locale locale) {
-        MessageResolver mr = ApplicationContextWrapper.getBean(MessageResolver.class);
         return messageSource.getMessage(appError.getMessageKey(), args, defaultMessage, locale);
     }
 }

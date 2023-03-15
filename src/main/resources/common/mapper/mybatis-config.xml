@@ -9,8 +9,4 @@
 <!-- 		<setting name="defaultExecutorType" value="REUSE" /> -->
 <!-- 		<setting name="localCacheScope" value="STATEMENT" /> -->
 	</settings>
-	<plugins>
-        <plugin interceptor="com.x2bee.common.base.masking.MybatisMaskingInterceptor"/>
-        <plugin interceptor="com.x2bee.common.base.encrypt.MybatisEncryptInterceptor"/>
-    </plugins>
 </configuration>
