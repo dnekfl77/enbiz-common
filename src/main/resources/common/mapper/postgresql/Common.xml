@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.x2bee.common.app.repository.CommonMapper">
+<mapper namespace="com.enbiz.common.app.repository.CommonMapper">
 
     <select id="getSequenceNextVal" resultType="long">
 		SELECT 1 from dual
