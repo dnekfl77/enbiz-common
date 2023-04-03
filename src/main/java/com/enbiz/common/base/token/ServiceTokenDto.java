@@ -1,16 +1,12 @@
 package com.enbiz.common.base.token;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
+import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
-@ToString
-@Accessors(chain = true)
+@Data
 @NoArgsConstructor
+@SuperBuilder
 public class ServiceTokenDto {
 	private String token;
 }

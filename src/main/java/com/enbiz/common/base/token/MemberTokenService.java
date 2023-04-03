@@ -76,8 +76,8 @@ public class MemberTokenService implements TokenServiceForFilter {
 		builder.setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * expMin));
 		builder.setIssuedAt(new Date());
 		if(userDetail != null) {
-			builder.claim("userName", userDetail.getUserName());
-			builder.claim("mbrNo", userDetail.getMbrNo());
+			builder.claim("id", userDetail.getId());
+			builder.claim("username", userDetail.getUsername());
 			builder.claim("roles", Arrays.asList("ROLE_MEMBER"));
 		}
 

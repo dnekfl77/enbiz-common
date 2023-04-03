@@ -41,8 +41,8 @@ public class ServiceTokenService implements TokenServiceForFilter {
     }
 
     public ServiceTokenDto createToken(TokenRequest tokenRequest) {
-    	UserDetail userDetail = new UserDetail().setUserName(tokenRequest.getUserName());
-		return new ServiceTokenDto().setToken(generateToken(userDetail, Arrays.asList("ROLE_SERVICE")));
+    	UserDetail userDetail = UserDetail.builder().username(tokenRequest.getUsername()).build();
+		return ServiceTokenDto.builder().token(generateToken(userDetail, Arrays.asList("ROLE_SERVICE"))).build();
     }
     
     public String generateToken(UserDetail userDetail,List<String> roles) {

@@ -1,10 +1,14 @@
 package com.enbiz.common.base.token;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
+@Data
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MemberTokenDto {
 	private String accessToken;
 	private String refreshToken;

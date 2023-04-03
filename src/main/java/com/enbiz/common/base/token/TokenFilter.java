@@ -44,15 +44,15 @@ public class TokenFilter extends GenericFilterBean {
 		Optional<String> jwtOpt = AuthUtils.resolveToken((HttpServletRequest) request);
 		if (jwtOpt.isPresent() && tokenService.verifyToken(jwtOpt.get())) {
 			Jws<Claims> jws = tokenService.parseToken(jwtOpt.get());
-			String userName = (String) jws.getBody().get("userName");
-			String mbrNo = (String) jws.getBody().get("mbrNo");
+			String username = (String) jws.getBody().get("username");
+			Long id = (Long) jws.getBody().get("id");
 			List<String> roles = (List<String>) jws.getBody().get("roles");
 			List<GrantedAuthority> authorities = new ArrayList<>();
 			if (CollectionUtils.isNotEmpty(roles)) {
 				roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role)));
 			}
 			UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-					new UserDetail().setUserName(userName).setMbrNo(mbrNo), "", authorities);
+					UserDetail.builder().username(username).id(id).build(), "", authorities);
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 		}
 

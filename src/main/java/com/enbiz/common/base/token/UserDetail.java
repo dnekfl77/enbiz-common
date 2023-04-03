@@ -3,13 +3,13 @@ package com.enbiz.common.base.token;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 public class UserDetail {
-	private String userName;
-	private String mbrNo;
+	private Long id;
+	private String username;
 }

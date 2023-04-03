@@ -12,7 +12,7 @@ class ServiceTokenServiceTest {
 
 	@Test
 	void createToken() {
-		ServiceTokenDto tokenDto = TokenService.createToken(new TokenRequest().setUserName("service"));
+		ServiceTokenDto tokenDto = TokenService.createToken(new TokenRequest().setUsername("service"));
 		
 		Assertions.assertNotNull(tokenDto);
 	}
