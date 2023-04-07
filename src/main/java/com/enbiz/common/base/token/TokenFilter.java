@@ -45,7 +45,7 @@ public class TokenFilter extends GenericFilterBean {
 		if (jwtOpt.isPresent() && tokenService.verifyToken(jwtOpt.get())) {
 			Jws<Claims> jws = tokenService.parseToken(jwtOpt.get());
 			String username = (String) jws.getBody().get("username");
-			Long id = (Long) jws.getBody().get("id");
+			Long id = toLong(jws.getBody().get("id"));
 			List<String> roles = (List<String>) jws.getBody().get("roles");
 			List<GrantedAuthority> authorities = new ArrayList<>();
 			if (CollectionUtils.isNotEmpty(roles)) {
@@ -59,4 +59,12 @@ public class TokenFilter extends GenericFilterBean {
 		chain.doFilter(request, response);
 	}
 
+	private Long toLong(Object value) {
+		if (value instanceof Integer) {
+			return ((Integer) value).longValue();
+		} else if (value instanceof Long) {
+			return (Long) value;
+		}
+		return null;
+	}
 }

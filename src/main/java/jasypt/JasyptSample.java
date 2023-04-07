@@ -11,6 +11,7 @@ public class JasyptSample {
 		
 		System.out.println(pbeEnc.encrypt("enbiz"));
 		System.out.println(pbeEnc.decrypt("CE0ByNhs5BdJ1rBWr2LIqeNavBEW12oQdk/+16YJeeV71ZT1+HdBh/l6p2K7F/hs"));
+		System.out.println(pbeEnc.decrypt("aI9Usg3VdYZ0Raix7soouBIuKI+mzWWEpELiOK/SRL1xiB7uyeUcyrtIubW1HLeH8Inrg45ONOHmgcSzV+ctyiLBIfaf5I6K23ibDwSTmZA="));
 	}
 	
 	public static StringEncryptor stringEncryptor() {

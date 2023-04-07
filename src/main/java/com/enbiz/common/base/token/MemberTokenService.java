@@ -53,7 +53,7 @@ public class MemberTokenService implements TokenServiceForFilter {
 		String accessToken = createJws(accessSecretKey, accessExpMin, userInfo);
 
 		// Create Refresh Token
-		String refreshToken = createJws(refreshSecretKey, refreshExpMin, null);
+		String refreshToken = createJws(refreshSecretKey, refreshExpMin, UserDetail.builder().username(userInfo.getUsername()).build());
 
 		MemberTokenDto tokens = new MemberTokenDto();
 		tokens.setAccessToken(accessToken);
@@ -129,6 +129,14 @@ public class MemberTokenService implements TokenServiceForFilter {
 	public Jws<Claims> parseToken(String token) {
     	return Jwts.parserBuilder()
     			.setSigningKey(accessSecretKey)
+    			.build()
+    			.parseClaimsJws(token);
+	}
+	
+	@Override
+	public Jws<Claims> parseRefreshToken(String token) {
+		return Jwts.parserBuilder()
+    			.setSigningKey(refreshSecretKey)
     			.build()
     			.parseClaimsJws(token);
 	}
