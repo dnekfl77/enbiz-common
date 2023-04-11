@@ -16,6 +16,7 @@ import org.springframework.util.StringUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.UnsupportedJwtException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -87,6 +88,11 @@ public class ServiceTokenService implements TokenServiceForFilter {
     			.setSigningKey(secretKey)
     			.build()
     			.parseClaimsJws(token);
+    }
+    
+    @Override
+    public Jws<Claims> parseRefreshToken(String token) {
+    	throw new UnsupportedJwtException("Unsupported exception.");
     }
     
 }
