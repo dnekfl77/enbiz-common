@@ -2,7 +2,7 @@ package com.enbiz.common.base.constant;
 
 import java.text.SimpleDateFormat;
 
-public class X2Constants {
+public class BaseConstants {
 	public static final String X2_CORE_LOGGER_CATEGORY = "x2.spring.core";
     public static final String CHARSET_ISO_8859_1 = "ISO-8859-1";
     public static final String DEFAULT_CHARSET = "UTF-8";
@@ -75,6 +75,6 @@ public class X2Constants {
         }
     };
 
-    private X2Constants() {
+    private BaseConstants() {
    	}
 }

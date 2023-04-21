@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.enbiz.common.base.constant.X2Constants;
+import com.enbiz.common.base.constant.BaseConstants;
 
 public class TimestampPropertyEditorSupport extends PropertyEditorSupport {
 	
@@ -16,12 +16,12 @@ public class TimestampPropertyEditorSupport extends PropertyEditorSupport {
 	}
 	
 	private Timestamp parseValue(String value){
-        Timestamp timestamp = parseValueWithTimestamp(value, X2Constants.SIMPLE_DATE_FORMAT_YYYYMMDDHHMISS_WITH_DASH_DELIM.get());
-        timestamp = timestamp == null ? parseValueWithTimestamp(value, X2Constants.SIMPLE_DATE_FORMAT_YYYYMMDDHHMISS_WITH_DELIM.get()) : timestamp;
-		timestamp = timestamp == null ? parseValueWithTimestamp(value, X2Constants.SIMPLE_DATE_FORMAT_YYYYMMDD_WITH_DELIM.get()) : timestamp;
-		timestamp = timestamp == null ? parseValueWithTimestamp(value, X2Constants.SIMPLE_DATE_FORMAT_YYYYMMDD_WITH_DASH_DELIM.get()) : timestamp;
-		timestamp = timestamp == null ? parseValueWithTimestamp(value, X2Constants.SIMPLE_DATE_FORMAT_YYYYMMDDHHMISS.get()) : timestamp;
-		timestamp = timestamp == null ? parseValueWithTimestamp(value, X2Constants.SIMPLE_DATE_FORMAT_YYYYMMDD.get()) : timestamp;
+        Timestamp timestamp = parseValueWithTimestamp(value, BaseConstants.SIMPLE_DATE_FORMAT_YYYYMMDDHHMISS_WITH_DASH_DELIM.get());
+        timestamp = timestamp == null ? parseValueWithTimestamp(value, BaseConstants.SIMPLE_DATE_FORMAT_YYYYMMDDHHMISS_WITH_DELIM.get()) : timestamp;
+		timestamp = timestamp == null ? parseValueWithTimestamp(value, BaseConstants.SIMPLE_DATE_FORMAT_YYYYMMDD_WITH_DELIM.get()) : timestamp;
+		timestamp = timestamp == null ? parseValueWithTimestamp(value, BaseConstants.SIMPLE_DATE_FORMAT_YYYYMMDD_WITH_DASH_DELIM.get()) : timestamp;
+		timestamp = timestamp == null ? parseValueWithTimestamp(value, BaseConstants.SIMPLE_DATE_FORMAT_YYYYMMDDHHMISS.get()) : timestamp;
+		timestamp = timestamp == null ? parseValueWithTimestamp(value, BaseConstants.SIMPLE_DATE_FORMAT_YYYYMMDD.get()) : timestamp;
 
 		return timestamp;
 	}
