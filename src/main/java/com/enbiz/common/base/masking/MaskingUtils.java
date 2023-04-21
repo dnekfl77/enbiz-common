@@ -14,7 +14,7 @@ public class MaskingUtils {
 	* @param type
 	* @return {@link String}
 	*/
-	public String getValue(String value, MaskingType type) {
+	public static String getValue(String value, MaskingType type) {
 		if(StringUtils.isEmpty(value) || "NULL".equalsIgnoreCase(value)) {
 			return "";
 		}
@@ -242,7 +242,7 @@ public class MaskingUtils {
      * @param startIdx 시작위치
      * @return 마스킹 적용된 문자열
      */
-    public String masking(String src, int startIdx) {
+    public static String masking(String src, int startIdx) {
         return masking(src, DEFAULT_REPLACE, null, startIdx, src.length());
     }
 
@@ -254,7 +254,7 @@ public class MaskingUtils {
      * @param length   길이
      * @return 마스킹 적용된 문자열
      */
-    public String masking(String src, int startIdx, int length) {
+    public static String masking(String src, int startIdx, int length) {
         return masking(src, DEFAULT_REPLACE, null, startIdx, length);
     }
 
@@ -266,7 +266,7 @@ public class MaskingUtils {
      * @param startIdx 시작위치
      * @return 마스킹 적용된 문자열
      */
-    public String masking(String src, char replace, int startIdx) {
+    public static String masking(String src, char replace, int startIdx) {
         return masking(src, replace, null, startIdx, src.length());
     }
 
@@ -279,7 +279,7 @@ public class MaskingUtils {
      * @param length   길이
      * @return 마스킹 적용된 문자열
      */
-    public String masking(String src, char replace, int startIdx,
+    public static String masking(String src, char replace, int startIdx,
                                  int length) {
         return masking(src, replace, null, startIdx, length);
     }
@@ -294,7 +294,7 @@ public class MaskingUtils {
      * @param length   길이
      * @return 마스킹 적용된 문자열
      */
-    public String masking(String src, char replace, char[] exclude,
+    public static String masking(String src, char replace, char[] exclude,
                                  int startIdx, int length) {
 		if(StringUtils.isEmpty(src) || "NULL".equalsIgnoreCase(src)) {
 			return "";
