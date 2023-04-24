@@ -14,8 +14,6 @@ import org.apache.ibatis.plugin.Invocation;
 import org.apache.ibatis.plugin.Plugin;
 import org.apache.ibatis.plugin.Signature;
 
-import com.enbiz.common.base.context.ApplicationContextWrapper;
-
 /**
  * Result interceptor
 */
@@ -24,9 +22,6 @@ public class MybatisMaskingInterceptor implements Interceptor {
 	
 	@Override
     public Object intercept(Invocation invocation) throws Throwable {
-		
-		MaskingUtils maskingUtils = (MaskingUtils)ApplicationContextWrapper.getBean("maskingUtils");
-		
         Object result = invocation.proceed();
         if (Objects.isNull(result)){
             return null;
@@ -42,7 +37,7 @@ public class MybatisMaskingInterceptor implements Interceptor {
 
             		if(annotation!=null && field.getType() == String.class) {
             			try {
-                			String val = maskingUtils.getValue(BeanUtils.getProperty(resultList.get(i), field.getName())+"", annotation.type());
+                			String val = MaskingUtils.getValue(BeanUtils.getProperty(resultList.get(i), field.getName())+"", annotation.type());
                 			BeanUtils.setProperty(resultList.get(i), field.getName(), val);
             			}
                         catch (IllegalAccessException e) {
@@ -58,7 +53,7 @@ public class MybatisMaskingInterceptor implements Interceptor {
 
         		if(annotation!=null && field.getType() == String.class) {
         			try {
-            			String val = maskingUtils.getValue(BeanUtils.getProperty(result, field.getName())+"", annotation.type());
+            			String val = MaskingUtils.getValue(BeanUtils.getProperty(result, field.getName())+"", annotation.type());
             			BeanUtils.setProperty(result, field.getName(), val);
         			}catch (IllegalAccessException e) {
                     	System.out.println(e.getMessage());
