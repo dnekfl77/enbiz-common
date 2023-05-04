@@ -22,5 +22,7 @@ public @interface CheckDateFormat {
     Class<? extends Payload>[] payload() default { };
 
     String pattern();
+    
+    
 
 }
