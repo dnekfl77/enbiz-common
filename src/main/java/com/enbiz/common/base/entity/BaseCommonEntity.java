@@ -32,5 +32,9 @@ public class BaseCommonEntity extends AbstractEntity implements Serializable {
 	private String sysRegIpAddr = "EMPTY";
 	private String sysModMenuId = "EMPTY";
 	private String sysModIpAddr = "EMPTY";
+	
+	public int getOffset() {
+		return (pageIdx - 1) * rowsPerPage;
+	}	
 
 }
